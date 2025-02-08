@@ -2,6 +2,7 @@ import express from 'express';
 
 import Food from '../models/food.js';
 
+
 const router = express.Router();
 
 
@@ -164,6 +165,7 @@ router.delete('/:id', async (req, res) => {
    await Food.findByIdAndDelete(req.params.id);
     return res.status(204).json();
 });
+
 
 
 export default router;
