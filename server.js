@@ -4,7 +4,6 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-
 import foodsController from './controllers/foods.js';
 
 dotenv.config();
@@ -40,3 +39,4 @@ app.use('/api/v1/foods', foodsController);
 app.listen(3000, () => {
     console.log('Express API running on port 3000');
 });
+

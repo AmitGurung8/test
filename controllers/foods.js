@@ -1,5 +1,4 @@
 import express from 'express';
-
 import Food from '../models/food.js';
 
 
@@ -129,7 +128,7 @@ router.put('/:id', async (req, res) => {
         }
 
         await Food.findByIdAndUpdate(req.params.id, req.body);
-        return res.status(204).json(); // 204: resource modified
+        return res.status(204).json();
     }
     catch (err) {
         return res.status(400).json({ err: `Bad Request: ${err}` });

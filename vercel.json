@@ -4,20 +4,16 @@
       { "src": "server.js", "use": "@vercel/node" }
     ],
     "routes": [
-        {
-            "src": "/",
-            "dest": "/server.js"
-        },
       {
-        "src": "/api/v1/foods",
+        "src": "/api-docs/(.*)",
         "dest": "/server.js"
       },
       {
-        "src": "/api/v1/foods/(.*)",
+        "src": "/api/(.*)",
         "dest": "/server.js"
       },
       {
-        "src": "/api-docs",
+        "src": "/(.*)",
         "dest": "/server.js"
       }
     ]

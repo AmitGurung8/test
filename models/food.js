@@ -6,10 +6,12 @@ const foodSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    
     foodGroup: {
         type: String,
         required: true
     },
+
     calories: {
         type: Number,
         max:999999999,
