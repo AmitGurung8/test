@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
  *       - name: id
  *         in: path
  *         schema:
- *           type: integer
+ *           type: string
  *           required: true
  *     responses:
  *       200:
@@ -65,10 +65,14 @@ router.get('/:id', async (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               id:
- *                 type: integer
  *               name:
  *                 type: string
+ *               foodGroup:
+ *                 type: string
+ *               calories: 
+ *                 type: number
+ *               weight: 
+ *                 type: number
  *     responses:
  *       201:
  *         description: Resource created
@@ -78,7 +82,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         await Food.create(req.body);
-        return res.status(201).json();  
+        return res.status(201).json();
     }
     catch (err) {
         return res.status(400).json({ err: `Bad Request: ${err}` });
@@ -91,11 +95,11 @@ router.post('/', async (req, res) => {
  *   put:
  *     summary: update selected food from request body
  *     parameters:
- *       -name: id
+ *     - name: id
  *       in: path
  *       required: true
  *       schema:
- *         type: integer
+ *         type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -103,10 +107,16 @@ router.post('/', async (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               id:
- *                 type: integer
+ *               _id:
+ *                 type: string
  *               name:
  *                 type: string
+ *               foodGroup:
+ *                 type: string
+ *               calories: 
+ *                 type: number
+ *               weight: 
+ *                 type: number
  *     responses:
  *       204:
  *         description: Resource updated
@@ -145,7 +155,7 @@ router.put('/:id', async (req, res) => {
  *       - name: id
  *         in: path
  *         schema:
- *           type: integer
+ *           type: string
  *           required: true
  *     responses:
  *       204:
@@ -161,7 +171,7 @@ router.delete('/:id', async (req, res) => {
         return res.status(404).json({ msg: 'Not Found' });
     }
 
-   await Food.findByIdAndDelete(req.params.id);
+    await Food.findByIdAndDelete(req.params.id);
     return res.status(204).json();
 });
 
